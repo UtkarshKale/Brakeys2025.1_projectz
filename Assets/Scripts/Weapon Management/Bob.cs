@@ -10,7 +10,6 @@ public class Bob : MonoBehaviour
 
     private float defaultPosY;
     private float timer = 0f;
-    private float bobbingIntensity = 0f; // Current intensity of the bobbing effect
 
     public float smoothTime = 0.1f;
 
