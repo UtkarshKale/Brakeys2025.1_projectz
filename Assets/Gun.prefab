@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 7734115904796047698}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.246, y: 0.207, z: 0}
+  m_LocalPosition: {x: -3.24602, y: 0.20699784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 3610207437817532356}
   - component: {fileID: 123362391171129327}
   - component: {fileID: 1322333338576046794}
+  - component: {fileID: 1444105508841621035}
   m_Layer: 0
   m_Name: Prefab_Gun
   m_TagString: Untagged
@@ -236,4 +237,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swayAmount: 0.02
   maxSwayAmount: 0.06
+  smoothTime: 0.1
+--- !u!114 &1444105508841621035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104568782785993744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274fb920f8c936f43bd398d1db0bf1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkBobbingSpeed: 2
+  sprintBobbingSpeed: 16
+  bobbingAmount: 0.03
+  transitionSpeed: 1
   smoothTime: 0.1
