@@ -10,7 +10,7 @@ public class WeaponUnlocker : MonoBehaviour
     void Start()
     {
         // Find the WeaponManager in the scene
-        weaponManager = FindObjectOfType<WeaponManager>();
+        weaponManager =  FindFirstObjectByType<WeaponManager>(); //FindObjectOfType<WeaponManager>(); //this is deprecated
         if (weaponManager == null)
         {
             Debug.LogError("WeaponManager not found in the scene.");
