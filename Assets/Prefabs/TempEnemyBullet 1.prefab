@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 278934085746876786}
   m_Layer: 0
   m_Name: TempEnemyBullet 1
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,3 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   lifetime: 1
+  damage: 10
+  shooterTag: Enemy

@@ -1,121 +1,97 @@
-
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
-    public NavMeshAgent agent;
-
     public Transform player;
+    public GameObject bulletPrefab;
+    public Transform shootPoint;
+    public float fireRate = 1f;
+    public float shootingRange = 10f;
+    public float detectionRange = 20f;
+    public float stoppingDistance = 5f;
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    private NavMeshAgent agent;
+    private bool canSeePlayer = false;
+    private bool isShooting = false;
 
-    public float health;
-
-    //Patroling
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
-
-    //Attacking
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
-    public GameObject projectile;
-
-    //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
-
-    public float fuckaroundValueForward = 1f;
-    public float fuckaroundValueUP = 2f;
-    private void Awake()
+    private void Start()
     {
-        player = GameObject.Find("Nathuram").transform;
         agent = GetComponent<NavMeshAgent>();
+
+        // Start shooting loop (will only shoot if player is in range)
+        InvokeRepeating(nameof(Shoot), 0f, 1f / fireRate);
     }
 
     private void Update()
     {
-        //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        if (player == null) return;
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
-    }
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-    private void Patroling()
-    {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
-    private void SearchWalkPoint()
-    {
-        //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-    }
-
-    private void ChasePlayer()
-    {
-        agent.SetDestination(player.position);
-    }
-
-    private void AttackPlayer()
-    {
-        //Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
-
-        if (!alreadyAttacked)
+        // Check if player is within detection range
+        if (distanceToPlayer <= detectionRange)
         {
-            ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, transform.rotation).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * fuckaroundValueForward, ForceMode.Impulse);
-            rb.AddForce(transform.up * fuckaroundValueUP, ForceMode.Impulse);
-            ///End of attack code
+            canSeePlayer = CheckLineOfSight();
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            if (canSeePlayer)
+            {
+                agent.SetDestination(player.position);
+
+                // Stop moving if close enough
+                if (distanceToPlayer <= stoppingDistance)
+                {
+                    agent.isStopped = true;
+                }
+                else
+                {
+                    agent.isStopped = false;
+                }
+            }
+        }
+        else
+        {
+            agent.isStopped = true;
+            canSeePlayer = false;
         }
     }
-    private void ResetAttack()
+
+    private bool CheckLineOfSight()
     {
-        alreadyAttacked = false;
+        RaycastHit hit;
+        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+
+        if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer, out hit, detectionRange))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void TakeDamage(int damage)
+    private void Shoot()
     {
-        health -= damage;
+        if (canSeePlayer && Vector3.Distance(transform.position, player.position) <= shootingRange)
+        {
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
+            GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+            if (bulletScript != null)
+            {
+                bulletScript.shooterTag = gameObject.tag; // Prevent self-damage
+            }
+        }
     }
 
-    private void OnDrawGizmosSelected()
+      private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, shootingRange);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
