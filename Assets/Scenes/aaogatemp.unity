@@ -119,6 +119,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &702817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702818}
+  m_Layer: 0
+  m_Name: SwordHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &702818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.24625498, y: 0.06739922, z: -0.011869746, w: 0.9667859}
+  m_LocalPosition: {x: 0, y: -0.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1776406763}
+  m_Father: {fileID: 525231357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40175698
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 143161893}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.11, z: 3.38}
+  m_LocalPosition: {x: 3.96, y: 1.38, z: 3.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1115,13 +1147,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512200644}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24625498, y: 0.06739922, z: -0.011869746, w: 0.9667859}
-  m_LocalPosition: {x: 0, y: -0.71, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.41034958, y: -0.8732553, z: 0.21326607, w: -0.1534799}
+  m_LocalPosition: {x: -0.115082525, y: -0.025506318, z: -0.034583744}
+  m_LocalScale: {x: 1.2345672, y: 1.2345674, z: 1.2345673}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1407880650}
-  m_Father: {fileID: 525231357}
+  m_Father: {fileID: 1776406763}
   m_LocalEulerAnglesHint: {x: 28.539, y: 8.146, z: 0.668}
 --- !u!1 &525231356
 GameObject:
@@ -1152,7 +1184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 512200645}
+  - {fileID: 702818}
   m_Father: {fileID: 984046025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677363880
@@ -2024,7 +2056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1257627901
 Transform:
   m_ObjectHideFlags: 0
@@ -2374,7 +2406,7 @@ Transform:
   m_GameObject: {fileID: 1407880649}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2910,6 +2942,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1776406763}
+  - component: {fileID: 1776406765}
+  - component: {fileID: 1776406764}
   m_Layer: 0
   m_Name: 3DSwordHandle
   m_TagString: Untagged
@@ -2925,14 +2959,53 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776406762}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.065, y: 0.946, z: 0.004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0.41034958, y: 0.8732553, z: -0.21326607, w: -0.1534799}
+  m_LocalPosition: {x: -0.056390006, y: 0.07782652, z: -0.025770893}
+  m_LocalScale: {x: 0.8100002, y: 0.81000006, z: 0.81000006}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 643345392145908624}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  - {fileID: 512200645}
+  m_Father: {fileID: 702818}
+  m_LocalEulerAnglesHint: {x: 190.994, y: 394.787, z: 220.406}
+--- !u!114 &1776406764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776406762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48fdee9883c89dd4185c0208647ae80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordAnimator: {fileID: 1776406765}
+  swordCollider: {fileID: 7979264731229559539}
+  swordModel: {fileID: 7071785408246301611}
+  swingDuration: 0.5
+--- !u!95 &1776406765
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776406762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 669c792e21a60c5408533c971e931cf6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1806901577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,13 +4950,14 @@ GameObject:
   - component: {fileID: 643345392145908624}
   - component: {fileID: 4297096997667924044}
   - component: {fileID: 7979264731229559538}
+  - component: {fileID: 7979264731229559539}
   m_Layer: 0
   m_Name: SwordBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7123845119307809699
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,6 +5133,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7979264731229559539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071785408246301611}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010799057, y: 0.0009310852, z: 0.0013199081}
+  m_Center: {x: -0.0024797635, y: 0.00000027941874, z: 0.0006452336}
 --- !u!1 &8209912741801284929
 GameObject:
   m_ObjectHideFlags: 0
@@ -5492,5 +5587,4 @@ SceneRoots:
   - {fileID: 1295062943}
   - {fileID: 1296022927}
   - {fileID: 5564581323366113952}
-  - {fileID: 1776406763}
   - {fileID: 2082543347}
