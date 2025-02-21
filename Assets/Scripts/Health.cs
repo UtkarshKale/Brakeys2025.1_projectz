@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     private bool isCriticallyHurt = false;
     private Vector3 lastCheckpoint; // Stores last checkpoint
 
-    private void Start()
+        private void Start()
     {
         currentHealth = maxHealth;
         lastCheckpoint = transform.position; // Initial spawn point as checkpoint

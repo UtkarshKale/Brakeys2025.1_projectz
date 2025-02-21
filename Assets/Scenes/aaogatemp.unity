@@ -149,7 +149,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1776406763}
-  - {fileID: 1635637238}
   m_Father: {fileID: 525231357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40175698
@@ -706,7 +705,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.18
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -922,6 +921,68 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &436234281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436234282}
+  - component: {fileID: 436234284}
+  - component: {fileID: 436234283}
+  m_Layer: 3
+  m_Name: AttackRangeSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436234282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436234281}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.201, y: 1.0689999, z: 1.667}
+  m_LocalScale: {x: 1.84, y: 3.13, z: 3.09}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 525231357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &436234283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436234281}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &436234284
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436234281}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &453082621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1226,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 525231357}
+  - component: {fileID: 525231358}
+  - component: {fileID: 525231360}
+  - component: {fileID: 525231359}
   m_Layer: 0
   m_Name: W katana
   m_TagString: Untagged
@@ -1186,8 +1250,62 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 702818}
+  - {fileID: 436234282}
+  - {fileID: 1635637238}
   m_Father: {fileID: 984046025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525231358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525231356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531fc7be07b3ee242b241ef2c915e328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 50
+  attackCooldown: 0.4
+  attackDuration: 0.4
+  attackVFX: {fileID: 1635637237}
+  vfxSpawnPoint: {fileID: 1635637238}
+  vfxDuration: 0.4
+  attackCollider: {fileID: 436234283}
+  animator: {fileID: 1776406765}
+--- !u!114 &525231359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525231356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363dcc661bc465049a76d0ebd7848769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayAmount: 0.6
+  maxSwayAmount: 0.69
+  smoothTime: 0.1
+--- !u!114 &525231360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525231356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274fb920f8c936f43bd398d1db0bf1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkBobbingSpeed: 2
+  sprintBobbingSpeed: 16
+  bobbingAmount: 0.03
+  transitionSpeed: 1
+  smoothTime: 0.1
 --- !u!1 &677363880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 890010413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shootpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2389,8 +2507,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1407880650}
   - component: {fileID: 1407880651}
-  - component: {fileID: 1407880652}
-  - component: {fileID: 1407880653}
   m_Layer: 0
   m_Name: katanababyy
   m_TagString: Untagged
@@ -2468,38 +2584,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1407880652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407880649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 363dcc661bc465049a76d0ebd7848769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swayAmount: 0.6
-  maxSwayAmount: 0.69
-  smoothTime: 0.1
---- !u!114 &1407880653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407880649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 274fb920f8c936f43bd398d1db0bf1f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkBobbingSpeed: 2
-  sprintBobbingSpeed: 16
-  bobbingAmount: 0.03
-  transitionSpeed: 1
-  smoothTime: 0.1
 --- !u!1 &1490374081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,7 +2599,7 @@ GameObject:
   - component: {fileID: 1490374082}
   - component: {fileID: 1490374087}
   - component: {fileID: 1490374088}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WaltUH
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2859,13 +2943,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635637237}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.29962906, y: 0.61536354, z: -0.28009495, w: 0.6731248}
-  m_LocalPosition: {x: -0.23708443, y: 0.06674071, z: -0.13563791}
+  m_LocalRotation: {x: -0.13884129, y: 0.71759975, z: -0.103050455, w: 0.67465127}
+  m_LocalPosition: {x: -0.24800013, y: -0.58899987, z: -0.05400005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 702818}
-  m_LocalEulerAnglesHint: {x: -3.363, y: 86.376, z: -48.342}
+  m_Father: {fileID: 525231357}
+  m_LocalEulerAnglesHint: {x: -3.333, y: 87.375, z: -48.351}
 --- !u!73398921 &1635637239
 VFXRenderer:
   serializedVersion: 1
@@ -3058,8 +3142,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1776406763}
   - component: {fileID: 1776406765}
-  - component: {fileID: 1776406764}
-  - component: {fileID: 1776406766}
   m_Layer: 0
   m_Name: 3DSwordHandle
   m_TagString: Untagged
@@ -3076,7 +3158,7 @@ Transform:
   m_GameObject: {fileID: 1776406762}
   serializedVersion: 2
   m_LocalRotation: {x: 0.41034958, y: 0.8732553, z: -0.21326607, w: -0.1534799}
-  m_LocalPosition: {x: -0.056390006, y: 0.07782652, z: -0.025770893}
+  m_LocalPosition: {x: -0.056390006, y: 0.07782652, z: -0.02577089}
   m_LocalScale: {x: 0.8100002, y: 0.81000006, z: 0.81000006}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3084,22 +3166,6 @@ Transform:
   - {fileID: 512200645}
   m_Father: {fileID: 702818}
   m_LocalEulerAnglesHint: {x: 190.994, y: 394.787, z: 220.406}
---- !u!114 &1776406764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776406762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48fdee9883c89dd4185c0208647ae80e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordAnimator: {fileID: 1776406765}
-  swordCollider: {fileID: 7979264731229559539}
-  swordModel: {fileID: 7071785408246301611}
-  swingDuration: 0.5
 --- !u!95 &1776406765
 Animator:
   serializedVersion: 7
@@ -3122,21 +3188,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1776406766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776406762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69bcb06cc467d0c4a9b49b1414183037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vfxPrefab: {fileID: 2124974653}
-  vfxSpawnPoint: {fileID: 1635637238}
-  delayBeforeVFX: 0.2
 --- !u!1 &1806901577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,11 +3890,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2124974653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6445826192643391251, guid: 59da2629fc3d41e4ca58cc537b92bf1c, type: 3}
-  m_PrefabInstance: {fileID: 2082543347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2126565956
 GameObject:
   m_ObjectHideFlags: 0
