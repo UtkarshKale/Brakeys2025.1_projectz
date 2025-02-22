@@ -5176,7 +5176,6 @@ GameObject:
   - component: {fileID: 643345392145908624}
   - component: {fileID: 4297096997667924044}
   - component: {fileID: 7979264731229559538}
-  - component: {fileID: 7979264731229559539}
   m_Layer: 0
   m_Name: SwordBody
   m_TagString: Untagged
@@ -5359,27 +5358,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7979264731229559539
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071785408246301611}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.010799057, y: 0.0009310852, z: 0.0013199081}
-  m_Center: {x: -0.0024797635, y: 0.00000027941874, z: 0.0006452336}
 --- !u!1 &8209912741801284929
 GameObject:
   m_ObjectHideFlags: 0
