@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 326050478}
   - component: {fileID: 326050477}
   m_Layer: 3
-  m_Name: Niggerman123
+  m_Name: wedonttalkaboutthis
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1468,7 +1468,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733892003}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
