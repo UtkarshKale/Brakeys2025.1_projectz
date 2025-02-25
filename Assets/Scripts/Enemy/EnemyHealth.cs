@@ -17,6 +17,9 @@ public class EnemyHealth : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    
+
+
     public void TakeDamage(float damageAmount)
     {
         if (isDead) return;
